@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blockchain-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: blockchain-app
+  template:
+    metadata:
+      labels:
+        app: blockchain-app
+    spec:
+      containers:
+      - name: blockchain-app-container
+        image: cugar83/blockchain-app:latest
+        ports:
+        - containerPort: 80
